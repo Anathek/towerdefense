@@ -10,3 +10,9 @@ func _physics_process(delta):
 	
 	if Path.get_progress_ratio() >= 0.99:
 		Path.queue_free()
+		
+func take_damage(damage):
+	health -= damage
+	
+	if health <= 0:
+		queue_free()

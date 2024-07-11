@@ -8,7 +8,8 @@ height = 0.588916
 
 [node name="UFO" type="PathFollow3D"]
 
-[node name="Enemy" type="CharacterBody3D" parent="."]
+[node name="Enemy" type="CharacterBody3D" parent="." groups=["Enemy"]]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 script = ExtResource("1_bvh0i")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]

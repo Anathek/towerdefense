@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://44im0gxjtn3x"]
+
+[ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_236de"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8jef"]
+albedo_color = Color(0, 0, 0, 0.196078)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ynq5n"]
+material = SubResource("StandardMaterial3D_m8jef")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5b52i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wxmv1"]
+size = Vector3(1.51068, 1.33173, 1)
+
+[node name="Bullet" type="CharacterBody3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("1_236de")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("SphereMesh_ynq5n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5b52i")
+
+[node name="Collision" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0560608, -0.0209656, 0)
+shape = SubResource("BoxShape3D_wxmv1")
+
+[connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]

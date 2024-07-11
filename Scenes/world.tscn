@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cox3i6dd712xy"]
+[gd_scene load_steps=9 format=3 uid="uid://cox3i6dd712xy"]
 
 [ext_resource type="Script" path="res://Scripts/World.gd" id="1_k6b5k"]
 [ext_resource type="PackedScene" uid="uid://dgyuraftkgwa5" path="res://Tiles/tile_cornerSquare.tscn" id="1_xddyy"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bnkxv5g1fm1wh" path="res://Tiles/tile_straight.tscn" id="3_vaa4k"]
 [ext_resource type="PackedScene" uid="uid://cswprfpf5wad5" path="res://Tiles/tile_end.tscn" id="4_5jhr8"]
 [ext_resource type="PackedScene" uid="uid://col0fdj11xo2g" path="res://Tiles/tile_grass.tscn" id="5_tg1i3"]
+[ext_resource type="PackedScene" uid="uid://chxqh7s3gywl1" path="res://Scenes/cannon.tscn" id="7_k5ce8"]
 
 [sub_resource type="Curve3D" id="Curve3D_sn721"]
 _data = {
@@ -195,5 +196,8 @@ transform = Transform3D(-0.0183417, -0.733362, 0.679591, -0.0197858, 0.679838, 0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.413933, 0.340015, -0.844422, 0.437191, 0.739384, 0.51203, 0.798451, -0.58112, 0.157404, -4.47505, 3.48619, -4.82987)
+
+[node name="Cannon" parent="." instance=ExtResource("7_k5ce8")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.5, 0.2, -2.5)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

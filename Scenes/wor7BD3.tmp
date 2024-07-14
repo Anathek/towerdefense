@@ -323,28 +323,6 @@ offset_right = 216.0
 offset_bottom = 638.0
 text = "Next Wave"
 
-[node name="Gold" type="Label" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 17.0
-offset_right = 177.0
-offset_bottom = 66.0
-theme_override_font_sizes/font_size = 35
-text = "Gold: 250"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Wave" type="Label" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 66.0
-offset_right = 177.0
-offset_bottom = 115.0
-theme_override_font_sizes/font_size = 35
-text = "Wave: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="TowerRoundSampleF" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, -9.5)
 mesh = ExtResource("10_cl3io")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cox3i6dd712xy"]
+[gd_scene load_steps=19 format=3 uid="uid://cox3i6dd712xy"]
 
 [ext_resource type="Script" path="res://Scripts/World.gd" id="1_k6b5k"]
 [ext_resource type="PackedScene" uid="uid://dgyuraftkgwa5" path="res://Tiles/tile_cornerSquare.tscn" id="1_xddyy"]
@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://0p6w1mxdyocy" path="res://Materials/red.tres" id="8_h11cf"]
 [ext_resource type="Texture2D" uid="uid://booay0sq0ko3" path="res://Textures/weapon_cannon_S.png" id="9_2q5i3"]
 [ext_resource type="ArrayMesh" uid="uid://dauisw4djf0ge" path="res://Models/towerRound_sampleF.obj" id="10_cl3io"]
+[ext_resource type="Texture2D" uid="uid://c5wnvic35gqe4" path="res://Textures/weapon_blaster_S.png" id="10_kipss"]
 [ext_resource type="PackedScene" uid="uid://40l1e43qk1dl" path="res://Scenes/health_bar_3d.tscn" id="11_vhokm"]
 
 [sub_resource type="Curve3D" id="Curve3D_sn721"]
@@ -302,6 +303,21 @@ grow_vertical = 2
 texture = ExtResource("9_2q5i3")
 expand_mode = 2
 
+[node name="CannonButton2" type="Button" parent="CanvasLayer/UI/ShopPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_g2qgf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_46c3i")
+text = "250 Gold"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/ShopPanel/VBoxContainer/CannonButton2"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+texture = ExtResource("10_kipss")
+expand_mode = 2
+
 [node name="Panel" type="Panel" parent="CanvasLayer/UI/ShopPanel/VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
@@ -354,5 +370,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70405, 0)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/UI/ShopPanel/VBoxContainer/CannonButton" to="." method="_on_cannon_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/ShopPanel/VBoxContainer/CannonButton2" to="." method="_on_cannon_button_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/ShopPanel/VBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/NextWaveButton" to="." method="_on_next_wave_button_pressed"]

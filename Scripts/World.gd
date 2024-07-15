@@ -55,10 +55,14 @@ func game_manager() -> void:
 		Global.enemies_alive += 1
 		
 		can_spawn = false
+		
 	if Global.enemies_alive > 0:
 		wave_on_going = true
 	else:
 		wave_on_going = false
+
+	if Global.health <= 0:
+		game_over()
 
 func handle_ui() -> void:
 	$CanvasLayer/UI/ShopPanel.visible = in_build_menu
@@ -78,6 +82,9 @@ func buy_tower(cost : int, scene : PackedScene):
 		add_child(temp_cannon)
 		temp_cannon.global_position = indicator.global_position
 
+func game_over() -> void:
+	$CanvasLayer/UI/GameOverPanel.visible = true
+	
 func _on_cannon_button_pressed():
 	buy_tower(250, cannon)
 
@@ -92,3 +99,12 @@ func _on_next_wave_button_pressed():
 
 func _on_cannon_button_2_pressed():
 	buy_tower(500, blaster)
+
+
+func _on_play_again_button_pressed():
+	Global.reset()
+	get_tree().reload_current_scene()
+
+
+func _on_quit_button_pressed():
+	get_tree().quit()

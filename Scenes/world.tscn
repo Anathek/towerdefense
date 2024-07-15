@@ -361,6 +361,46 @@ text = "Wave: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="GameOverPanel" type="Panel" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer/UI/GameOverPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="CanvasLayer/UI/GameOverPanel"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 483.0
+offset_top = 373.0
+offset_right = 683.0
+offset_bottom = 423.0
+text = "Play Again
+"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/UI/GameOverPanel"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 482.0
+offset_top = 432.0
+offset_right = 682.0
+offset_bottom = 482.0
+text = "Quit"
+
 [node name="TowerRoundSampleF" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, -9.5)
 mesh = ExtResource("10_cl3io")
@@ -373,3 +413,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70405, 0)
 [connection signal="pressed" from="CanvasLayer/UI/ShopPanel/VBoxContainer/CannonButton2" to="." method="_on_cannon_button_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/ShopPanel/VBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/GameOverPanel/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/GameOverPanel/QuitButton" to="." method="_on_quit_button_pressed"]
